@@ -1,11 +1,49 @@
-<!doctype html>
-<!-- Shot 12 · 28.8–31.6s · Materializing result · written plan · 48 hrs · fix chips
-     STUB: layout + timeline not built yet. Local time 0 = film 28.8s. -->
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"></head>
-<body><div id="s12" class="scene" data-composition-id="s12" data-width="1920" data-height="1080" data-duration="2.8">
-  <div class="stub-label">12 · Materializing result · written plan · 48 hrs · fix chips</div>
-  <script>
-    window.__timelines = window.__timelines || {};
-    window.__timelines["s12"] = gsap.timeline({ paused: true });
-  </script>
-</div></body></html>
+<!-- Shot 12 · 28.8–31.6s · Materializing result. "Written plan" shell (from shot 11) fills in: ranked lines (blurred),
+     fix chips Build · Tool · Hire · Process, "48 hrs" mark. Exit: doc morphs into the navy offer card (shot 13 frame 0: 340,230 1240×620).
+     VO: "You get a written plan within forty-eight hours." -->
+<template id="s12-template">
+  <div id="s12" data-composition-id="s12" data-width="1920" data-height="1080" data-duration="2.8">
+    <div class="doc">
+      <div class="in">
+        <div class="hd">Written plan</div>
+        <div class="stamp">48 hrs</div>
+        <div class="row"><b>1</b><p>Missed calls routed after hours</p><span class="chip">Build</span></div>
+        <div class="row"><b>2</b><p>Estimate follow-up in two days</p><span class="chip">Tool</span></div>
+        <div class="row"><b>3</b><p>Office help for invoicing runs</p><span class="chip">Hire</span></div>
+        <div class="row"><b>4</b><p>Weekly close-out on open jobs</p><span class="chip">Process</span></div>
+      </div>
+    </div>
+    <style>
+      [data-composition-id="s12"]{background:var(--paper)}
+      [data-composition-id="s12"] .doc{position:absolute;left:310px;top:90px;width:1300px;height:900px;background:var(--card);border-radius:16px;box-shadow:0 30px 80px rgba(20,33,61,.16);overflow:hidden}
+      [data-composition-id="s12"] .in{position:absolute;left:0;top:0;width:1300px;height:900px;padding:78px 96px;box-sizing:border-box}
+      [data-composition-id="s12"] .hd{font-size:92px;font-weight:800;letter-spacing:-.04em;color:var(--navy)}
+      [data-composition-id="s12"] .stamp{position:absolute;right:92px;top:70px;padding:14px 30px;border:5px solid var(--navy);border-radius:18px;font-size:54px;font-weight:800;color:var(--navy);transform:rotate(-6deg);letter-spacing:-.02em}
+      [data-composition-id="s12"] .row{display:flex;align-items:center;gap:44px;height:152px;border-top:2px solid #ececea}
+      [data-composition-id="s12"] .row:first-of-type{margin-top:52px}
+      [data-composition-id="s12"] .row b{flex:0 0 72px;height:72px;border-radius:50%;background:var(--navy);color:var(--paper);font-size:40px;display:flex;align-items:center;justify-content:center}
+      [data-composition-id="s12"] .row p{flex:1;margin:0;font-size:44px;font-weight:600;color:#3a3f4a;filter:blur(9px);transform-origin:0 50%}
+      [data-composition-id="s12"] .chip{flex:0 0 auto;padding:14px 34px;border-radius:999px;background:#e7e9ee;color:var(--navy);font-size:40px;font-weight:700}
+    </style>
+    <script>
+      (function () {
+        const q = s => '[data-composition-id="s12"] ' + s;
+        const tl = gsap.timeline({ paused: true });
+        tl.to(q('.doc'), { scale: 1.02, duration: 2.3, ease: 'none' }, 0);
+        tl.from(q('.hd'), { y: 40, autoAlpha: 0, duration: 0.35, ease: 'power3.out' }, 0.05);
+        tl.from(q('.row'), { autoAlpha: 0, duration: 0.2, stagger: 0.16 }, 0.3);
+        tl.from(q('.row b'), { scale: 0, duration: 0.3, ease: 'back.out(2.4)', stagger: 0.16 }, 0.3);
+        tl.from(q('.row p'), { scaleX: 0, duration: 0.4, ease: 'expo.out', stagger: 0.16 }, 0.36);
+        tl.from(q('.chip'), { scale: 0.4, autoAlpha: 0, duration: 0.3, ease: 'back.out(2.2)', stagger: 0.14 }, 0.9);
+        // "forty-eight hours": the stamp lands.
+        tl.from(q('.stamp'), { scale: 1.8, autoAlpha: 0, rotation: -18, duration: 0.3, ease: 'power4.in' }, 1.6);
+        tl.to(q('.doc'), { x: 6, duration: 0.05, yoyo: true, repeat: 1 }, 1.9);
+        // Morph into the offer card.
+        tl.to(q('.in'), { autoAlpha: 0, duration: 0.18 }, 2.35);
+        tl.to(q('.doc'), { left: 340, top: 230, width: 1240, height: 620, borderRadius: 40, scale: 1, backgroundColor: '#14213d', duration: 0.45, ease: 'expo.inOut' }, 2.35);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['s12'] = tl;
+      })();
+    </script>
+  </div>
+</template>

@@ -1,11 +1,15 @@
-<!doctype html>
-<!-- Shot 7 · 11.8–13.8s · Macro · folded invoice in door pocket · coffee ring
-     STUB: layout + timeline not built yet. Local time 0 = film 11.8s. -->
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"></head>
-<body><div id="s07" class="scene" data-composition-id="s07" data-width="1920" data-height="1080" data-duration="2">
-  <div class="stub-label">07 · Macro · folded invoice in door pocket · coffee ring</div>
-  <script>
-    window.__timelines = window.__timelines || {};
-    window.__timelines["s07"] = gsap.timeline({ paused: true });
-  </script>
-</div></body></html>
+<!-- Shot 7 · PLACEHOLDER until the AI plate is generated (PLAN.md §B). Invoice in truck door pocket -->
+<template id="s07-template">
+  <div id="s07" data-composition-id="s07" data-width="1920" data-height="1080" data-duration="2">
+    <div class="ph placeholder"><div>Shot 7 · AI plate pending<small>Invoice in truck door pocket</small></div></div>
+    <style>[data-composition-id="s07"] .ph{position:absolute;inset:0}</style>
+    <script>
+      (function () {
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo('[data-composition-id="s07"] .ph > div', { scale: 1 }, { scale: 1.03, duration: 2, ease: 'none' }, 0);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['s07'] = tl;
+      })();
+    </script>
+  </div>
+</template>

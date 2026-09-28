@@ -1,11 +1,79 @@
-<!doctype html>
-<!-- Shot 11 · 23.2–28.8s · Registered decomposition · rails · "$ ___ / yr"
-     STUB: layout + timeline not built yet. Local time 0 = film 23.2s. -->
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"></head>
-<body><div id="s11" class="scene" data-composition-id="s11" data-width="1920" data-height="1080" data-duration="5.6">
-  <div class="stub-label">11 · Registered decomposition · rails · "$ ___ / yr"</div>
-  <script>
-    window.__timelines = window.__timelines || {};
-    window.__timelines["s11"] = gsap.timeline({ paused: true });
-  </script>
-</div></body></html>
+<!-- Shot 11 · 23.2–28.8s · Registered decomposition. The three artifacts drop into labelled rails:
+     calls + estimates → "Getting customers", invoice → "Getting paid". A pen writes "$ ___ / yr" beside each. No figures.
+     Exit: rails collapse into the written-plan shell (shot 12 frame 0: doc 310,90 1300×900).
+     VO: "We go through your calls, estimates, and invoices and put a dollar figure on what's slipping." -->
+<template id="s11-template">
+  <div id="s11" data-composition-id="s11" data-width="1920" data-height="1080" data-duration="5.6">
+    <div class="all">
+      <div class="rail ra"><div class="lab">Getting<br>customers</div></div>
+      <div class="rail rb"><div class="lab">Getting<br>paid</div></div>
+      <div class="art call"><div class="ic"><svg viewBox="0 0 48 48"><path d="M14 8h7l3 9-5 3c2 5 5 8 10 10l3-5 9 3v7c0 2-2 4-4 4C19 39 9 29 9 12c0-2 2-4 5-4z" fill="currentColor"/><path d="M30 8l10 10M40 8L30 18" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div><div><b>Missed call <em>(2)</em></b><span>No voicemail</span></div></div>
+      <div class="art est"><div class="h">Estimate</div><i></i><i class="s"></i><i></i><div class="sticky">Due Fri</div></div>
+      <div class="art inv"><div class="h">Invoice</div><i></i><i class="s"></i><div class="ring"></div></div>
+      <div class="note n1"><span>$ ___ / yr</span></div>
+      <div class="note n2"><span>$ ___ / yr</span></div>
+      <div class="note n3"><span>$ ___ / yr</span></div>
+      <svg class="pen p1" viewBox="0 0 60 60"><path d="M8 52l6-16L44 6l10 10-30 30z" fill="var(--navy)"/><path d="M8 52l6-16 10 10z" fill="#c9ccd3"/></svg>
+      <svg class="pen p2" viewBox="0 0 60 60"><path d="M8 52l6-16L44 6l10 10-30 30z" fill="var(--navy)"/><path d="M8 52l6-16 10 10z" fill="#c9ccd3"/></svg>
+      <svg class="pen p3" viewBox="0 0 60 60"><path d="M8 52l6-16L44 6l10 10-30 30z" fill="var(--navy)"/><path d="M8 52l6-16 10 10z" fill="#c9ccd3"/></svg>
+    </div>
+    <div class="doc"></div>
+    <style>
+      [data-composition-id="s11"]{background:var(--paper)}
+      [data-composition-id="s11"] .all{position:absolute;inset:0;transform-origin:960px 540px}
+      [data-composition-id="s11"] .rail{position:absolute;left:80px;width:1760px;height:340px;border-radius:40px;background:#e8e8e5;transform-origin:0 50%}
+      [data-composition-id="s11"] .ra{top:130px}
+      [data-composition-id="s11"] .rb{top:600px}
+      [data-composition-id="s11"] .lab{position:absolute;left:56px;top:50%;transform:translateY(-50%);font-size:50px;font-weight:800;letter-spacing:-.03em;line-height:1.02;color:var(--navy)}
+      [data-composition-id="s11"] .art{position:absolute;background:var(--card);box-shadow:0 18px 40px rgba(20,33,61,.13);box-sizing:border-box}
+      [data-composition-id="s11"] .call{left:450px;top:215px;width:450px;height:170px;border-radius:30px;display:flex;align-items:center;gap:26px;padding:0 32px}
+      [data-composition-id="s11"] .call .ic{flex:0 0 88px;height:88px;border-radius:50%;background:#fdecea;color:#d6453d;display:flex;align-items:center;justify-content:center}
+      [data-composition-id="s11"] .call svg{width:52px;height:52px}
+      [data-composition-id="s11"] .call b{display:block;white-space:nowrap;font-size:40px;font-weight:800;letter-spacing:-.03em}
+      [data-composition-id="s11"] .call em{font-style:normal;color:#d6453d}
+      [data-composition-id="s11"] .call span{display:block;font-size:24px;color:var(--muted);margin-top:4px}
+      [data-composition-id="s11"] .est{left:1225px;top:160px;width:230px;height:280px;border-radius:8px;padding:30px 26px}
+      [data-composition-id="s11"] .h{font-size:24px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:22px}
+      [data-composition-id="s11"] .art i{display:block;height:12px;border-radius:6px;background:#e4e5e8;margin-bottom:20px}
+      [data-composition-id="s11"] .art i.s{width:62%}
+      [data-composition-id="s11"] .sticky{position:absolute;right:-30px;bottom:26px;width:130px;height:110px;background:#f6d860;box-shadow:0 8px 18px rgba(0,0,0,.14);transform:rotate(6deg);font-family:var(--hand);font-size:42px;font-weight:600;color:#3a3220;display:flex;align-items:center;justify-content:center}
+      [data-composition-id="s11"] .inv{left:450px;top:660px;width:330px;height:220px;border-radius:8px;padding:30px;transform:rotate(-2deg)}
+      [data-composition-id="s11"] .ring{position:absolute;right:24px;bottom:20px;width:90px;height:90px;border-radius:50%;border:7px solid rgba(120,78,40,.22)}
+      [data-composition-id="s11"] .note{position:absolute;font-family:var(--hand);font-weight:600;font-size:72px;color:var(--navy);white-space:nowrap;clip-path:inset(0 100% 0 0)}
+      [data-composition-id="s11"] .n1{left:930px;top:252px}
+      [data-composition-id="s11"] .n2{left:1540px;top:252px}
+      [data-composition-id="s11"] .n3{left:830px;top:722px}
+      [data-composition-id="s11"] .pen{position:absolute;width:70px;height:70px;opacity:0}
+      [data-composition-id="s11"] .doc{position:absolute;left:910px;top:490px;width:100px;height:100px;background:var(--card);border-radius:16px;box-shadow:0 30px 80px rgba(20,33,61,.16);opacity:0}
+    </style>
+    <script>
+      (function () {
+        const q = s => '[data-composition-id="s11"] ' + s;
+        const tl = gsap.timeline({ paused: true });
+        tl.from(q('.rail'), { scaleX: 0, duration: 0.6, ease: 'expo.out', stagger: 0.12 }, 0);
+        tl.from(q('.lab'), { autoAlpha: 0, x: -30, duration: 0.4, ease: 'power3.out', stagger: 0.12 }, 0.25);
+        // Artifacts drop in on the VO words: calls · estimates · invoices.
+        tl.from(q('.call'), { y: -700, rotation: -6, duration: 0.55, ease: 'expo.out' }, 0.75);
+        tl.from(q('.est'), { y: -700, rotation: 6, duration: 0.55, ease: 'expo.out' }, 1.25);
+        tl.from(q('.inv'), { y: -1100, rotation: 8, duration: 0.6, ease: 'expo.out' }, 1.8);
+        // The pen writes a blank dollar figure beside each ("put a dollar figure on what's slipping").
+        const notes = [['.n1', '.p1', 930, 252, 270], ['.n2', '.p2', 1540, 252, 270], ['.n3', '.p3', 830, 722, 270]];
+        notes.forEach(([n, p, x, y, w], i) => {
+          const t = 2.7 + i * 0.55;
+          tl.to(q(n), { clipPath: 'inset(0 0% 0 0)', duration: 0.6, ease: 'none' }, t);
+          tl.fromTo(q(p), { x: x - 10, y: y + 30, opacity: 0 }, { opacity: 1, duration: 0.08 }, t - 0.05);
+          tl.to(q(p), { x: x + w, duration: 0.6, ease: 'none' }, t);
+          tl.to(q(p), { y: y + 12, duration: 0.1, ease: 'sine.inOut', yoyo: true, repeat: 5 }, t);
+          tl.to(q(p), { opacity: 0, duration: 0.12 }, t + 0.62);
+        });
+        tl.to(q('.all'), { scale: 1.025, duration: 4.4, ease: 'none' }, 0.6);
+        // Collapse into the plan document shell.
+        tl.to(q('.all'), { scale: 0.45, autoAlpha: 0, duration: 0.42, ease: 'power3.in' }, 5.15);
+        tl.to(q('.doc'), { opacity: 1, duration: 0.1 }, 5.2);
+        tl.to(q('.doc'), { left: 310, top: 90, width: 1300, height: 900, duration: 0.4, ease: 'expo.out' }, 5.2);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['s11'] = tl;
+      })();
+    </script>
+  </div>
+</template>

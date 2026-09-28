@@ -1,11 +1,62 @@
-<!doctype html>
-<!-- Shot 8 · 13.8–16.8s · Wall → one actor · three drips merge into one rust line
-     STUB: layout + timeline not built yet. Local time 0 = film 13.8s. -->
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"></head>
-<body><div id="s08" class="scene" data-composition-id="s08" data-width="1920" data-height="1080" data-duration="3">
-  <div class="stub-label">08 · Wall → one actor · three drips merge into one rust line</div>
-  <script>
-    window.__timelines = window.__timelines || {};
-    window.__timelines["s08"] = gsap.timeline({ paused: true });
-  </script>
-</div></body></html>
+<!-- Shot 8 · 13.8–16.8s · Wall → one actor. Call card, estimate, invoice land on paper; each drips a rust line;
+     the three drips merge into ONE line (T2). Super "None of that's on a report."
+     Hand-off: ends on full navy with the rust line at left 560 / top 877 / 800×6 (shot 9 frame 0).
+     VO: "None of that's on a report. It just leaks." -->
+<template id="s08-template">
+  <div id="s08" data-composition-id="s08" data-width="1920" data-height="1080" data-duration="3.0">
+    <div class="super">None of that’s on a report.</div>
+    <div class="art call"><div class="ic"><svg viewBox="0 0 48 48"><path d="M14 8h7l3 9-5 3c2 5 5 8 10 10l3-5 9 3v7c0 2-2 4-4 4C19 39 9 29 9 12c0-2 2-4 5-4z" fill="currentColor"/><path d="M30 8l10 10M40 8L30 18" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div><div><b>Missed call <em>(2)</em></b><span>No voicemail</span></div></div>
+    <div class="art est"><div class="h">Estimate</div><i></i><i></i><i class="s"></i><i></i><i class="s"></i><div class="sticky">Due Fri</div></div>
+    <div class="art inv"><div class="h">Invoice</div><i></i><i class="s"></i><i></i><div class="ring"></div><div class="fold"></div></div>
+    <svg class="drips" viewBox="0 0 1920 1080">
+      <path d="M420 568 C420 700 430 780 960 880" pathLength="1"/>
+      <path d="M960 712 L960 880" pathLength="1"/>
+      <path d="M1500 628 C1500 720 1490 790 960 880" pathLength="1"/>
+    </svg>
+    <div class="flood"></div>
+    <div class="line"></div>
+    <style>
+      [data-composition-id="s08"]{background:var(--paper)}
+      [data-composition-id="s08"] .super{position:absolute;left:0;right:0;top:92px;text-align:center;font-size:84px;font-weight:800;letter-spacing:-.03em;color:var(--navy)}
+      [data-composition-id="s08"] .art{position:absolute;background:var(--card);box-shadow:0 22px 50px rgba(20,33,61,.14);box-sizing:border-box}
+      [data-composition-id="s08"] .call{left:170px;top:378px;width:500px;height:190px;border-radius:32px;display:flex;align-items:center;gap:28px;padding:0 36px}
+      [data-composition-id="s08"] .call .ic{flex:0 0 96px;height:96px;border-radius:50%;background:#fdecea;color:#d6453d;display:flex;align-items:center;justify-content:center}
+      [data-composition-id="s08"] .call svg{width:56px;height:56px}
+      [data-composition-id="s08"] .call b{display:block;font-size:48px;font-weight:800;letter-spacing:-.03em}
+      [data-composition-id="s08"] .call em{font-style:normal;color:#d6453d}
+      [data-composition-id="s08"] .call span{display:block;font-size:26px;color:var(--muted);margin-top:6px}
+      [data-composition-id="s08"] .est{left:770px;top:232px;width:380px;height:480px;border-radius:10px;padding:44px 40px}
+      [data-composition-id="s08"] .h{font-size:34px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--navy);margin-bottom:34px}
+      [data-composition-id="s08"] .art i{display:block;height:16px;border-radius:8px;background:#e4e5e8;margin-bottom:26px}
+      [data-composition-id="s08"] .art i.s{width:62%}
+      [data-composition-id="s08"] .sticky{position:absolute;right:-46px;bottom:52px;width:200px;height:170px;background:#f6d860;box-shadow:0 12px 24px rgba(0,0,0,.14);transform:rotate(6deg);font-family:var(--hand);font-size:62px;font-weight:600;color:#3a3220;display:flex;align-items:center;justify-content:center}
+      [data-composition-id="s08"] .inv{left:1300px;top:318px;width:400px;height:310px;border-radius:8px;padding:40px;transform:rotate(-2deg)}
+      [data-composition-id="s08"] .ring{position:absolute;right:34px;bottom:28px;width:130px;height:130px;border-radius:50%;border:9px solid rgba(120,78,40,.22)}
+      [data-composition-id="s08"] .fold{position:absolute;left:0;right:0;top:50%;height:44px;margin-top:-22px;background:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.06) 48%,rgba(255,255,255,.7) 52%,rgba(0,0,0,0))}
+      [data-composition-id="s08"] .drips{position:absolute;inset:0;width:1920px;height:1080px;overflow:visible}
+      [data-composition-id="s08"] .drips path{fill:none;stroke:var(--rust);stroke-width:6;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+      [data-composition-id="s08"] .flood{position:absolute;inset:0;background:var(--navy);clip-path:inset(100% 0 0 0)}
+      [data-composition-id="s08"] .line{position:absolute;left:560px;top:877px;width:800px;height:6px;border-radius:3px;background:var(--rust);transform:scaleX(0)}
+    </style>
+    <script>
+      (function () {
+        const q = s => '[data-composition-id="s08"] ' + s;
+        const tl = gsap.timeline({ paused: true });
+        // Artifacts land from the worlds they came from.
+        tl.from(q('.call'), { x: -900, rotation: -8, duration: 0.55, ease: 'expo.out' }, 0);
+        tl.from(q('.est'), { y: -1000, rotation: 5, duration: 0.6, ease: 'expo.out' }, 0.06);
+        tl.from(q('.inv'), { x: 900, rotation: 9, duration: 0.55, ease: 'expo.out' }, 0.12);
+        tl.from(q('.super'), { y: 50, autoAlpha: 0, duration: 0.45, ease: 'power3.out' }, 0.2);
+        // Each one leaks; the three drips converge (T2).
+        tl.to(q('.drips path'), { strokeDashoffset: 0, duration: 0.8, ease: 'power2.inOut', stagger: 0.09 }, 1.05);
+        tl.to(q('.line'), { scaleX: 1, duration: 0.45, ease: 'power3.out' }, 1.95);
+        tl.to(q('.drips path'), { opacity: 0, duration: 0.25 }, 2.15);
+        // Wall collapses to one actor: everything but the line lifts out, navy floods in under it.
+        tl.to([q('.call'), q('.est'), q('.inv'), q('.super')], { y: -70, autoAlpha: 0, duration: 0.35, ease: 'power2.in', stagger: 0.03 }, 2.3);
+        tl.to(q('.flood'), { clipPath: 'inset(0% 0 0 0)', duration: 0.45, ease: 'power3.inOut' }, 2.55);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['s08'] = tl;
+      })();
+    </script>
+  </div>
+</template>

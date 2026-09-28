@@ -1,11 +1,51 @@
-<!doctype html>
-<!-- Shot 13 · 31.6–35.4s · Offer card · AI & Efficiency Audit · 60 minutes · $1,000 · clock ring
-     STUB: layout + timeline not built yet. Local time 0 = film 31.6s. -->
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"></head>
-<body><div id="s13" class="scene" data-composition-id="s13" data-width="1920" data-height="1080" data-duration="3.8">
-  <div class="stub-label">13 · Offer card · AI & Efficiency Audit · 60 minutes · $1,000 · clock ring</div>
-  <script>
-    window.__timelines = window.__timelines || {};
-    window.__timelines["s13"] = gsap.timeline({ paused: true });
-  </script>
-</div></body></html>
+<!-- Shot 13 · 31.6–35.4s · Offer card "AI & Efficiency Audit · 60 minutes · $1,000". A thin clock ring draws around it.
+     Exit: card expands full-bleed; the ring becomes shot 14's inset frame (40px, paper 35%).
+     VO: "The AI and Efficiency Audit. Sixty minutes. A thousand dollars." -->
+<template id="s13-template">
+  <div id="s13" data-composition-id="s13" data-width="1920" data-height="1080" data-duration="3.8">
+    <div class="card">
+      <div class="in">
+        <div class="ti">AI &amp; Efficiency Audit</div>
+        <div class="stats"><div class="st s1">60 minutes</div><div class="sep"></div><div class="st s2">$1,000</div></div>
+      </div>
+    </div>
+    <svg class="ring" viewBox="0 0 1920 1080"><path d="M960 206 H1540 A60 60 0 0 1 1600 266 V814 A60 60 0 0 1 1540 874 H380 A60 60 0 0 1 320 814 V266 A60 60 0 0 1 380 206 Z" pathLength="1"/></svg>
+    <div class="box"></div>
+    <style>
+      [data-composition-id="s13"]{background:var(--paper)}
+      [data-composition-id="s13"] .card{position:absolute;left:340px;top:230px;width:1240px;height:620px;border-radius:40px;background:var(--navy)}
+      [data-composition-id="s13"] .in{position:absolute;inset:0;color:var(--paper);text-align:center}
+      [data-composition-id="s13"] .ti{position:absolute;left:0;right:0;top:110px;font-size:104px;font-weight:800;letter-spacing:-.04em}
+      [data-composition-id="s13"] .stats{position:absolute;left:0;right:0;top:330px;display:flex;justify-content:center;align-items:center;gap:70px}
+      [data-composition-id="s13"] .st{font-size:112px;font-weight:800;letter-spacing:-.04em}
+      [data-composition-id="s13"] .sep{width:4px;height:120px;background:rgba(242,242,241,.35)}
+      [data-composition-id="s13"] .ring{position:absolute;inset:0;width:1920px;height:1080px}
+      [data-composition-id="s13"] .ring path{fill:none;stroke:var(--navy);stroke-opacity:.55;stroke-width:4;stroke-linecap:round;stroke-dasharray:1;stroke-dashoffset:1}
+      [data-composition-id="s13"] .box{position:absolute;left:318px;top:204px;width:1284px;height:672px;box-sizing:border-box;border:4px solid rgba(20,33,61,.55);border-radius:62px;opacity:0}
+    </style>
+    <script>
+      (function () {
+        const q = s => '[data-composition-id="s13"] ' + s;
+        const tl = gsap.timeline({ paused: true });
+        tl.from(q('.ti'), { y: 50, autoAlpha: 0, duration: 0.45, ease: 'expo.out' }, 0.1);
+        tl.to(q('.card'), { scale: 1.025, duration: 3.1, ease: 'none' }, 0.1);
+        tl.to(q('.ring'), { scale: 1.025, transformOrigin: '960px 540px', duration: 3.1, ease: 'none' }, 0.1);
+        tl.to(q('.box'), { scale: 1.025, duration: 3.1, ease: 'none' }, 0.1);
+        // "Sixty minutes": the clock ring sweeps a full turn.
+        tl.from(q('.s1'), { y: 60, autoAlpha: 0, duration: 0.4, ease: 'expo.out' }, 1.35);
+        tl.to(q('.ring path'), { strokeDashoffset: 0, duration: 1.0, ease: 'power1.inOut' }, 1.35);
+        // "A thousand dollars."
+        tl.from(q('.sep'), { scaleY: 0, duration: 0.3, ease: 'power3.out' }, 2.25);
+        tl.from(q('.s2'), { y: 60, autoAlpha: 0, duration: 0.4, ease: 'expo.out' }, 2.35);
+        // Swap the drawn ring for an identical box, then open everything into shot 14.
+        tl.set(q('.box'), { opacity: 1 }, 2.4);
+        tl.set(q('.ring'), { opacity: 0 }, 2.4);
+        tl.to(q('.in'), { autoAlpha: 0, y: -30, duration: 0.25, ease: 'power2.in' }, 3.3);
+        tl.to(q('.card'), { left: 0, top: 0, width: 1920, height: 1080, borderRadius: 0, scale: 1, duration: 0.5, ease: 'expo.inOut' }, 3.3);
+        tl.to(q('.box'), { left: 40, top: 40, width: 1840, height: 1000, borderRadius: 24, scale: 1, borderColor: 'rgba(242,242,241,.35)', borderWidth: 3, duration: 0.5, ease: 'expo.inOut' }, 3.3);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['s13'] = tl;
+      })();
+    </script>
+  </div>
+</template>

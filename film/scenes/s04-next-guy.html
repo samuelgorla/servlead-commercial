@@ -1,11 +1,52 @@
-<!doctype html>
-<!-- Shot 4 · 5.8–7.2s · Type impact · "They call the next guy." · wipe right
-     STUB: layout + timeline not built yet. Local time 0 = film 5.8s. -->
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"></head>
-<body><div id="s04" class="scene" data-composition-id="s04" data-width="1920" data-height="1080" data-duration="1.4">
-  <div class="stub-label">04 · Type impact · "They call the next guy." · wipe right</div>
-  <script>
-    window.__timelines = window.__timelines || {};
-    window.__timelines["s04"] = gsap.timeline({ paused: true });
-  </script>
-</div></body></html>
+<!-- Shot 4 · 5.8–7.2s · Type impact "They call the next guy." · card stack (shot 3 end pose) slides out right · wipe right.
+     VO: "They call the next guy." -->
+<template id="s04-template">
+  <div id="s04" data-composition-id="s04" data-width="1920" data-height="1080" data-duration="1.4">
+    <div class="bg"></div>
+    <div class="stack">
+      <div class="card c1"><div class="icon"><svg viewBox="0 0 48 48"><path d="M14 8h7l3 9-5 3c2 5 5 8 10 10l3-5 9 3v7c0 2-2 4-4 4C19 39 9 29 9 12c0-2 2-4 5-4z" fill="currentColor"/><path d="M30 8l10 10M40 8L30 18" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div><div class="txt"><div class="t">Missed call</div><div class="s">Unknown number · 9:41 AM</div></div></div>
+      <div class="card c2"><div class="icon"><svg viewBox="0 0 48 48"><path d="M14 8h7l3 9-5 3c2 5 5 8 10 10l3-5 9 3v7c0 2-2 4-4 4C19 39 9 29 9 12c0-2 2-4 5-4z" fill="currentColor"/><path d="M30 8l10 10M40 8L30 18" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg></div>
+        <div class="txt"><div class="t">Missed call <span class="n">(2)</span></div><div class="s">Unknown number · No voicemail</div></div></div>
+    </div>
+    <div class="type">
+      <div class="l1"><span>They call</span></div>
+      <div class="l2"><span>the next guy.</span></div>
+    </div>
+    <div class="wipe"></div>
+    <style>
+      [data-composition-id="s04"]{background:var(--night)}
+      [data-composition-id="s04"] .bg{position:absolute;inset:0;background:radial-gradient(1100px 700px at 50% 55%,#2b3140 0%,var(--night) 70%)}
+      [data-composition-id="s04"] .stack{position:absolute;left:290px;top:250px;width:1340px;height:580px;transform:scale(1.03)}
+      [data-composition-id="s04"] .card{position:absolute;inset:0;background:var(--card);border-radius:56px;display:flex;align-items:center;gap:64px;padding:0 96px;box-sizing:border-box;box-shadow:0 40px 90px rgba(0,0,0,.45)}
+      [data-composition-id="s04"] .c1{transform:translateY(44px) scale(.94);filter:brightness(.82)}
+      [data-composition-id="s04"] .c2{transform:translateY(-30px)}
+      [data-composition-id="s04"] .icon{flex:0 0 200px;height:200px;border-radius:50%;background:#fdecea;color:#d6453d;display:flex;align-items:center;justify-content:center}
+      [data-composition-id="s04"] .icon svg{width:112px;height:112px}
+      [data-composition-id="s04"] .t{font-size:120px;font-weight:800;letter-spacing:-.035em;line-height:1}
+      [data-composition-id="s04"] .n{color:#d6453d}
+      [data-composition-id="s04"] .s{margin-top:26px;font-size:46px;font-weight:500;color:var(--muted)}
+      [data-composition-id="s04"] .type{position:absolute;left:150px;right:150px;top:250px;color:#fff;font-weight:800;letter-spacing:-.045em;line-height:.98;font-size:236px}
+      [data-composition-id="s04"] .l1,[data-composition-id="s04"] .l2{overflow:hidden;padding-bottom:18px}
+      [data-composition-id="s04"] .l2{text-align:right}
+      [data-composition-id="s04"] .l1 span,[data-composition-id="s04"] .l2 span{display:inline-block}
+      [data-composition-id="s04"] .wipe{position:absolute;top:0;bottom:0;left:0;width:2100px;background:var(--paper);transform:translateX(-2160px);box-shadow:24px 0 0 0 var(--navy)}
+    </style>
+    <script>
+      (function () {
+        const q = s => '[data-composition-id="s04"] ' + s;
+        const tl = gsap.timeline({ paused: true });
+        // Carried stack leaves right, fast.
+        tl.to(q('.stack'), { x: 1700, rotation: 3, duration: 0.42, ease: 'power3.in' }, 0);
+        // Words on opposing axes: line 1 from the left, line 2 from the right (behind the exiting card).
+        tl.fromTo(q('.l1 span'), { x: -1500 }, { x: 0, duration: 0.5, ease: 'expo.out' }, 0.08);
+        tl.fromTo(q('.l2 span'), { x: 1500 }, { x: 0, duration: 0.5, ease: 'expo.out' }, 0.2);
+        tl.fromTo(q('.type'), { scale: 1 }, { scale: 1.04, duration: 1.1, ease: 'none', transformOrigin: '50% 50%' }, 0.1);
+        // Wipe right into shot 5 (one wipe direction for the whole problem sequence).
+        tl.to(q('.l1 span'), { x: 260, duration: 0.3, ease: 'power2.in' }, 1.08);
+        tl.to(q('.wipe'), { x: 0, duration: 0.32, ease: 'power3.inOut' }, 1.08);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['s04'] = tl;
+      })();
+    </script>
+  </div>
+</template>

@@ -1,11 +1,27 @@
-<!doctype html>
-<!-- Shot 10 · 20.6–23.2s · TYPE CARD ONLY · Sam Gorla · Servlead Solutions · Lehigh Valley, PA · 14 years technology consulting
-     STUB: layout + timeline not built yet. Local time 0 = film 20.6s. -->
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"></head>
-<body><div id="s10" class="scene" data-composition-id="s10" data-width="1920" data-height="1080" data-duration="2.6">
-  <div class="stub-label">10 · TYPE CARD ONLY · Sam Gorla · Servlead Solutions · Lehigh Valley, PA · 14 years technology consulting</div>
-  <script>
-    window.__timelines = window.__timelines || {};
-    window.__timelines["s10"] = gsap.timeline({ paused: true });
-  </script>
-</div></body></html>
+<!-- Shot 10 · 20.6–23.2s · LOCK: TYPE CARD ONLY. No photo, no video, no AI face.
+     "Sam Gorla · Servlead Solutions · Lehigh Valley, PA · 14 years technology consulting"
+     Frame 0 = shot 9's last frame. VO: "I'm Sam Gorla, Servlead Solutions, Lehigh Valley." -->
+<template id="s10-template">
+  <div id="s10" data-composition-id="s10" data-width="1920" data-height="1080" data-duration="2.6">
+    <div class="c10"><div class="nm">Sam Gorla</div><div class="rl"></div><div class="l1">Servlead Solutions · Lehigh Valley, PA</div><div class="l2">14 years technology consulting</div></div>
+    <style>
+      [data-composition-id="s10"]{background:var(--paper)}
+      [data-composition-id="s10"] .c10{position:absolute;inset:0;background:var(--paper);text-align:center;color:var(--navy)}
+      [data-composition-id="s10"] .c10 .nm{position:absolute;left:0;right:0;top:318px;font-size:176px;font-weight:800;letter-spacing:-.045em;line-height:1}
+      [data-composition-id="s10"] .c10 .rl{position:absolute;left:900px;top:540px;width:120px;height:6px;border-radius:3px;background:var(--rust);transform:scaleX(0)}
+      [data-composition-id="s10"] .c10 .l1{position:absolute;left:0;right:0;top:590px;font-size:60px;font-weight:600;letter-spacing:-.015em;color:var(--ink)}
+      [data-composition-id="s10"] .c10 .l2{position:absolute;left:0;right:0;top:686px;font-size:48px;font-weight:500;color:var(--muted)}
+    </style>
+    <script>
+      (function () {
+        const q = s => '[data-composition-id="s10"] ' + s;
+        const tl = gsap.timeline({ paused: true });
+        tl.to(q('.c10'), { scale: 1.03, duration: 2.25, ease: 'none', transformOrigin: '50% 50%' }, 0);
+        tl.to(q('.rl'), { scaleX: 1, duration: 0.5, ease: 'expo.out' }, 0.15);
+        tl.to([q('.nm'), q('.rl'), q('.l1'), q('.l2')], { y: -60, autoAlpha: 0, duration: 0.32, ease: 'power2.in', stagger: 0.04 }, 2.2);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['s10'] = tl;
+      })();
+    </script>
+  </div>
+</template>

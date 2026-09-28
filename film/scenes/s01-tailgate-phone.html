@@ -1,11 +1,15 @@
-<!doctype html>
-<!-- Shot 1 · 0.0–1.8s · Macro · phone face-down on tailgate · "Missed call" slides in
-     STUB: layout + timeline not built yet. Local time 0 = film 0.0s. -->
-<html><head><meta charset="utf-8"><link rel="stylesheet" href="../tokens.css"></head>
-<body><div id="s01" class="scene" data-composition-id="s01" data-width="1920" data-height="1080" data-duration="1.8">
-  <div class="stub-label">01 · Macro · phone face-down on tailgate · "Missed call" slides in</div>
-  <script>
-    window.__timelines = window.__timelines || {};
-    window.__timelines["s01"] = gsap.timeline({ paused: true });
-  </script>
-</div></body></html>
+<!-- Shot 1 · PLACEHOLDER until the AI plate is generated (PLAN.md §B). Tailgate · phone face-down · "Missed call" -->
+<template id="s01-template">
+  <div id="s01" data-composition-id="s01" data-width="1920" data-height="1080" data-duration="1.8">
+    <div class="ph placeholder"><div>Shot 1 · AI plate pending<small>Tailgate · phone face-down · "Missed call"</small></div></div>
+    <style>[data-composition-id="s01"] .ph{position:absolute;inset:0}</style>
+    <script>
+      (function () {
+        const tl = gsap.timeline({ paused: true });
+        tl.fromTo('[data-composition-id="s01"] .ph > div', { scale: 1 }, { scale: 1.03, duration: 1.8, ease: 'none' }, 0);
+        window.__timelines = window.__timelines || {};
+        window.__timelines['s01'] = tl;
+      })();
+    </script>
+  </div>
+</template>
