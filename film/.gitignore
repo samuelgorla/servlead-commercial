@@ -1,0 +1,5 @@
+node_modules/
+renders/*
+!renders/.gitkeep
+*.mp4
+.env

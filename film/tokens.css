@@ -1,0 +1,13 @@
+/* Brand tokens. PLACEHOLDERS except paper (storyboard): confirm navy / rust / gold hex + typeface with Sam. */
+:root{
+  --paper:#f2f2f1;      /* locked in storyboard shot 8 */
+  --navy:#14213d;       /* TBD */
+  --rust:#b5542c;       /* TBD: leak line + underline */
+  --gold:#c9a227;       /* TBD: "$10,000" only */
+  --ink:#16181d;
+  --font:"Inter",system-ui,sans-serif; /* TBD */
+}
+html,body{margin:0;width:1920px;height:1080px;overflow:hidden;background:var(--paper);font-family:var(--font);color:var(--ink)}
+.scene,.clip{position:absolute;inset:0;width:1920px;height:1080px;overflow:hidden}
+.stub-label{position:absolute;left:96px;bottom:96px;font-size:40px;opacity:.5}
+.dramatization{inset:auto 40px 32px auto;width:auto;height:auto;font-size:22px;letter-spacing:.08em;text-transform:uppercase;color:#fff;opacity:.72;text-shadow:0 1px 3px rgba(0,0,0,.5)}
